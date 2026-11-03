@@ -1,0 +1,20 @@
+# Render Blueprint: https://dashboard.render.com/blueprints
+# After push, connect repo at New → Blueprint → roastroomai
+services:
+  - type: web
+    name: roastroomai
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: COUNCIL_RUNNER
+        value: api
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: KIE_AI_API_KEY
+        sync: false
